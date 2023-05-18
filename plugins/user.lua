@@ -10,10 +10,11 @@ return {
   --   end,
   -- },
   "mfussenegger/nvim-jdtls", -- load jdtls on module
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = { "jdtls" },
-    },
-  },
+  { "catppuccin/nvim", name = "catppuccin" }
+  --  {
+  --    "williamboman/mason-lspconfig.nvim",
+  --    opts = {
+  --      ensure_installed = { "jdtls" },
+  --    },
+  --  },
 }

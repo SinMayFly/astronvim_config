@@ -1,3 +1,7 @@
+local function exists(name)
+  if type(name) ~= "string" then return false end
+  return os.rename(name, name) and true or false
+end
 -- set jdtls server settings
 -- use this function notation to build some variables
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
@@ -5,8 +9,10 @@ local root_dir = require("jdtls.setup").find_root(root_markers)
 
 -- calculate workspace dir
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = vim.fn.stdpath "data" .. "/site/java/workspace-root/" .. project_name
-os.execute("mkdir " .. workspace_dir)
+local workspace_dir = "/home/isin/workstation/java/.workspace-root/" .. project_name
+if not exists(workspace_dir) then
+  os.execute("mkdir " .. workspace_dir)
+end
 
 -- get the mason install path
 local install_path = require("mason-registry").get_package("jdtls"):get_install_path()
