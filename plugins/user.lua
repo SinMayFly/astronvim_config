@@ -9,12 +9,18 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+    event = "User AstroFile",
+    cmd = { "TodoQuickFix" },
+  },
   "mfussenegger/nvim-jdtls", -- load jdtls on module
-  { "catppuccin/nvim", name = "catppuccin" }
-  --  {
-  --    "williamboman/mason-lspconfig.nvim",
-  --    opts = {
-  --      ensure_installed = { "jdtls" },
-  --    },
-  --  },
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin"
+  },
+  "p00f/clangd_extensions.nvim", -- install lsp plugin
 }
